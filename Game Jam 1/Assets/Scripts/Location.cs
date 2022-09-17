@@ -7,6 +7,7 @@ public enum LocationState
     Okay,
     Disaster,
     Recovering,
+    Destroied,
 }
 
 
@@ -15,8 +16,7 @@ public class Location : MonoBehaviour
     public LocationState locationState;
     public float recoveryTime;
     private const string moonShadowTag = "MoonShadow";
-    private float _recoveryTimer;
-    
+    private float _recoveryTimer;    
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +45,9 @@ public class Location : MonoBehaviour
             Debug.Log("Moon shadow hit shadow.");
             locationState = LocationState.Recovering;
         }
+    }
+
+    public void setDisaster() {
+        locationState = LocationState.Disaster;
     }
 }
