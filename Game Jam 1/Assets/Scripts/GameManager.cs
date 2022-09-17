@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    [SerializeField] private GameObject endGameScreen;
     private int _livesLeft = 3;
 
     private GameManager _gameManager;
@@ -34,5 +35,6 @@ public class GameManager : MonoBehaviour {
     void GameOver() {
         // Launch end game UI, stop all player movements
         _playerController.enabled = false;
+        this.endGameScreen.SetActive(true);
     }
 }
