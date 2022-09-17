@@ -14,9 +14,16 @@ public enum LocationState
 public class Location : MonoBehaviour
 {
     public LocationState locationState;
+
+    public GameObject okayGameObject;
+    public GameObject disasterGameObject;
+    public GameObject destroyedGameObject;
+    
     public float recoveryTime;
-    private float _recoveryTimer;
     public float destructionTime;
+    
+    
+    private float _recoveryTimer;
     private float _destructionTimer;    
     private const string moonShadowTag = "MoonShadow";
 
@@ -33,12 +40,12 @@ public class Location : MonoBehaviour
             _recoveryTimer -= Time.deltaTime;
             if (_recoveryTimer <= 0)
             {
-                locationState = LocationState.Okay;
+                SetState(LocationState.Okay);
             }
         } else if (locationState == LocationState.Disaster) {
             _destructionTimer -= Time.deltaTime;
             if (_destructionTimer <= 0) {
-                locationState = LocationState.Destroyed;
+                SetState(LocationState.Destroyed);
             }
         }
     }
@@ -47,15 +54,53 @@ public class Location : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(moonShadowTag) && locationState == LocationState.Disaster)
         {
-            _recoveryTimer = recoveryTime;
-
-            Debug.Log("Moon shadow hit shadow.");
-            locationState = LocationState.Recovering;
+            SetState(LocationState.Recovering);
         }
     }
 
-    public void setDisaster() {
-        locationState = LocationState.Disaster;
+    public void SetState(LocationState locationState) {
+        this.locationState = locationState;
+        switch (this.locationState)
+        {
+            case LocationState.Disaster:
+                DisasterStart();
+                break;
+            case LocationState.Okay:
+                OkayStart();
+                break;
+            case LocationState.Recovering:
+                RecoveringStart();
+                break;
+            case LocationState.Destroyed:
+                DestroyedStart();
+                break;
+        }
+    }
+
+    private void DisasterStart() {
         _destructionTimer = destructionTime;
+        disasterGameObject.SetActive(true);
+        okayGameObject.SetActive(false);
+        destroyedGameObject.SetActive(false);
+    }
+    
+    private void OkayStart() {
+        disasterGameObject.SetActive(false);
+        okayGameObject.SetActive(true);
+        destroyedGameObject.SetActive(false);
+    }
+
+    private void RecoveringStart() {
+        _recoveryTimer = recoveryTime;
+        disasterGameObject.SetActive(false);
+        okayGameObject.SetActive(true);
+        destroyedGameObject.SetActive(false);
+
+    }
+    
+    private void DestroyedStart() {
+        disasterGameObject.SetActive(false);
+        okayGameObject.SetActive(false);
+        destroyedGameObject.SetActive(true);
     }
 }

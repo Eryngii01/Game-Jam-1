@@ -37,7 +37,7 @@ public class DisasterManager : MonoBehaviour
         if (locations.FindAll(l => l.locationState == LocationState.Disaster).Count < maxDisastersCount) {
             List<Location> okLocations = locations.FindAll(l => l.locationState == LocationState.Okay);
             if (okLocations.Count > 0) {
-                okLocations[UnityEngine.Random.Range(0, okLocations.Count)].setDisaster();
+                okLocations[UnityEngine.Random.Range(0, okLocations.Count)].SetState(LocationState.Disaster);
             }
         }
     }
