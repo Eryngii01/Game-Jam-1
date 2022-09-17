@@ -6,8 +6,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private GameObject endGameScreen;
     private int _livesLeft = 3;
 
-    private GameManager _gameManager;
-    public GameManager Manager {
+    private static GameManager _gameManager;
+    public static GameManager Manager {
         get {return _gameManager;}
     }
 
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
         _playerController = GameObject.Find("Earth").GetComponent<PlayerController>();
     }
 
-    void DepleteLives() {
+    public void DepleteLives() {
         _livesLeft -= 1;
 
         if (_livesLeft < 0) {

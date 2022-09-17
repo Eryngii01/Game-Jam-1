@@ -82,7 +82,7 @@ public class Location : MonoBehaviour
     private void DisasterStart() {
         _destructionTimer = destructionTime;
         disasterGameObject.SetActive(true);
-        disasterGameObject.GetComponent<AudioSource>().Play();
+        // disasterGameObject.GetComponent<AudioSource>().Play();
         okayGameObject.SetActive(false);
         destroyedGameObject.SetActive(false);
     }
@@ -105,5 +105,6 @@ public class Location : MonoBehaviour
         disasterGameObject.SetActive(false);
         okayGameObject.SetActive(false);
         destroyedGameObject.SetActive(true);
+        GameManager.Manager.DepleteLives();
     }
 }
