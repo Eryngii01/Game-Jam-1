@@ -7,7 +7,7 @@ public enum LocationState
     Okay,
     Disaster,
     Recovering,
-    Destroied,
+    Destroyed,
 }
 
 
@@ -15,8 +15,10 @@ public class Location : MonoBehaviour
 {
     public LocationState locationState;
     public float recoveryTime;
+    private float _recoveryTimer;
+    public float destructionTime;
+    private float _destructionTimer;    
     private const string moonShadowTag = "MoonShadow";
-    private float _recoveryTimer;    
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,11 @@ public class Location : MonoBehaviour
             if (_recoveryTimer <= 0)
             {
                 locationState = LocationState.Okay;
+            }
+        } else if (locationState == LocationState.Disaster) {
+            _destructionTimer -= Time.deltaTime;
+            if (_destructionTimer <= 0) {
+                locationState = LocationState.Destroyed;
             }
         }
     }
@@ -49,5 +56,6 @@ public class Location : MonoBehaviour
 
     public void setDisaster() {
         locationState = LocationState.Disaster;
+        _destructionTimer = destructionTime;
     }
 }
