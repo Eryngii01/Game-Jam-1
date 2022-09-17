@@ -19,8 +19,8 @@ public class Location : MonoBehaviour
     public GameObject disasterGameObject;
     public GameObject destroyedGameObject;
     
-    public float recoveryTime;
-    public float destructionTime;
+    public float recoveryTime = 10f;
+    public float destructionTime = 10f;
     
     
     private float _recoveryTimer;
