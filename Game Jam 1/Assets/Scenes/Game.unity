@@ -498,46 +498,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sun
       objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451852, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451853, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451853, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451853, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 30.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451853, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.049885303
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451853, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.0014417516
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451853, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.9983371
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451853, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.028853202
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451853, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -3.311
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637046560864451853, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 174.279
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89ff53052c70443a0895f19427d0dff2, type: 3}
 --- !u!1001 &3654630900373590660
@@ -608,10 +568,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Earth
       objectReference: {fileID: 0}
-    - target: {fileID: 4755173362980694057, guid: 6b13064cba4ce4ba58d93737d710af4d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8bac23eb3d1e14a5a9dec237988ff322, type: 2}
     - target: {fileID: 4755173362980694059, guid: 6b13064cba4ce4ba58d93737d710af4d, type: 3}
       propertyPath: m_RootOrder
       value: 1
