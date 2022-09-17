@@ -82,6 +82,7 @@ public class Location : MonoBehaviour
     private void DisasterStart() {
         _destructionTimer = destructionTime;
         disasterGameObject.SetActive(true);
+        disasterGameObject.GetComponent<AudioSource>().Play();
         okayGameObject.SetActive(false);
         destroyedGameObject.SetActive(false);
     }
