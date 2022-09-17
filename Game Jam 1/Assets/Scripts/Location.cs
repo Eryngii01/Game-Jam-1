@@ -30,7 +30,7 @@ public class Location : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        locationState = LocationState.Okay;
+        SetState(LocationState.Okay);
     }
 
     void Update()
