@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void RotateEarth() {
-        Vector3 rotation = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+        Vector3 rotation = new Vector3(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"), 0f);
 
         transform.Rotate(rotation * rotateSpeed * Time.deltaTime);
     }
