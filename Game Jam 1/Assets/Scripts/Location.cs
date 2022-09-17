@@ -18,13 +18,13 @@ public class Location : MonoBehaviour
     public GameObject okayGameObject;
     public GameObject disasterGameObject;
     public GameObject destroyedGameObject;
-    
+
     public float recoveryTime = 10f;
     public float destructionTime = 10f;
-    
-    
+
+
     private float _recoveryTimer;
-    private float _destructionTimer;    
+    private float _destructionTimer;
     private const string moonShadowTag = "MoonShadow";
 
     // Start is called before the first frame update
@@ -50,10 +50,12 @@ public class Location : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collisionCollider)
     {
-        if (collision.gameObject.CompareTag(moonShadowTag) && locationState == LocationState.Disaster)
+        Debug.Log("Collision");
+        if (collisionCollider.gameObject.CompareTag(moonShadowTag) && locationState == LocationState.Disaster)
         {
+            Debug.Log("Collision with shadow");
             SetState(LocationState.Recovering);
         }
     }
@@ -83,7 +85,7 @@ public class Location : MonoBehaviour
         okayGameObject.SetActive(false);
         destroyedGameObject.SetActive(false);
     }
-    
+
     private void OkayStart() {
         disasterGameObject.SetActive(false);
         okayGameObject.SetActive(true);
@@ -97,7 +99,7 @@ public class Location : MonoBehaviour
         destroyedGameObject.SetActive(false);
 
     }
-    
+
     private void DestroyedStart() {
         disasterGameObject.SetActive(false);
         okayGameObject.SetActive(false);
