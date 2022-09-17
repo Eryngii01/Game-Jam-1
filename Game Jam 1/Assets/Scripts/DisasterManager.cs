@@ -14,12 +14,12 @@ public class DisasterManager : MonoBehaviour
 
     private DisasterManager _disasterManager;
     public DisasterManager Manager {
-        get {return _disaster;}
+        get {return _disasterManager;}
     }
 
     void Awake() {
-        if (_disaster == null) {
-            _disaster = this;
+        if (_disasterManager == null) {
+            _disasterManager = this;
         }
     }
 
@@ -41,7 +41,7 @@ public class DisasterManager : MonoBehaviour
             TrySpawningNewDisaster();
         }
 
-        
+
     }
 
     void TrySpawningNewDisaster() {
@@ -58,5 +58,5 @@ public class DisasterManager : MonoBehaviour
         return meanSpawnInterval * (- System.Math.Log(y - 1));
     }
 
-     
+
 }
