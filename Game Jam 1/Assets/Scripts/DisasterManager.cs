@@ -45,17 +45,19 @@ public class DisasterManager : MonoBehaviour
     }
 
     void TrySpawningNewDisaster() {
+        Debug.Log("Trying to spawn disaster");
         if (locations.FindAll(l => l.locationState == LocationState.Disaster).Count < maxDisastersCount) {
             List<Location> okLocations = locations.FindAll(l => l.locationState == LocationState.Okay);
             if (okLocations.Count > 0) {
+                Debug.Log("Disaster Spawned");
                 okLocations[UnityEngine.Random.Range(0, okLocations.Count)].SetState(LocationState.Disaster);
             }
         }
     }
 
     double GetSpawnInterval() {
-        double y = UnityEngine.Random.Range(0.0f, 1.0f);
-        return meanSpawnInterval * (- System.Math.Log(y - 1));
+        double y = UnityEngine.Random.Range(0.01f, 1.0f);
+        return meanSpawnInterval * (- System.Math.Log(1 - y));
     }
 
 
