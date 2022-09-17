@@ -12,6 +12,17 @@ public class DisasterManager : MonoBehaviour
     public double meanSpawnInterval = 20.0;
     private double spawnTime;
 
+    private DisasterManager _disasterManager;
+    public DisasterManager Manager {
+        get {return _disasterManager;}
+    }
+
+    void Awake() {
+        if (_disasterManager == null) {
+            _disasterManager = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +41,7 @@ public class DisasterManager : MonoBehaviour
             TrySpawningNewDisaster();
         }
 
-        
+
     }
 
     void TrySpawningNewDisaster() {
@@ -47,5 +58,5 @@ public class DisasterManager : MonoBehaviour
         return meanSpawnInterval * (- System.Math.Log(y - 1));
     }
 
-     
+
 }
